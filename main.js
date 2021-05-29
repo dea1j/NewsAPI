@@ -4,8 +4,8 @@ const url = `http://newsapi.org/v2/everything?q=Apple&from=2021-05-20&sortBy=pop
 
 
 $(document).ready(function() {
-    $('#list').click(function(event){event.preventDefault();$('#renderedNews .item').addClass('list-group-item');});
-    $('#grid').click(function(event){event.preventDefault();$('#renderedNews .item').removeClass('list-group-item');$('#renderedNews .item').addClass('grid-group-item');});
+    $('#list').click(function(event){event.preventDefault();$('.item').addClass('list-group-item');});
+    $('#grid').click(function(event){event.preventDefault();$('.item').removeClass('list-group-item');$('#renderedNews .item').addClass('grid-group-item');});
 });
 
 // const list = document.getElementById('list')
@@ -14,12 +14,13 @@ $(document).ready(function() {
 
 // list.addEventListener('click', function (e) {
 //     e.preventDefault()
-//     item.classList.add('list-group-item')
+//     // item.classList.add('list-group-item')
+//     console.log(e)
 // })
 
-// // grid.addEventListener('click', function (e) {
-// //     e.preventDefault()
-// //     item.className += 'list-group-item' && item.addClass('grid-group-item')
+// grid.addEventListener('click', function (e) {
+//     e.preventDefault()
+//     item.className += 'list-group-item' && item.addClass('grid-group-item')
 // })
 
 
@@ -43,23 +44,33 @@ fetch(url)
     //   newsEl.classList.add('row view-group')
     let allNewsEl = createNode('div');
     allNewsEl.classList.add('item')
-    allNewsEl.classList.add('col-xs-4')
     allNewsEl.classList.add('col-lg-4')
+    allNewsEl.classList.add('col-xs-4')
     allNewsEl.classList.add('mb-3')
 
+    date = article.publishedAt
+    console.log(date)
+
+    // date.array.forEach(element => {
+    //     console.log('hi')
+    // });
+    
+
     allNewsEl.innerHTML = `
-    <div class="thumbnail card">
+    <div class="thumbnail card" style="background-color: #f3f3f3;">
         <div class="img-event">
             <img class="group list-group-image img-fluid" src=${article.urlToImage} alt="image" />
         </div>
         <div class="caption card-body">
-            <h4 class="group card-title inner list-group-item-heading"><small>Author: </small>
-            ${article.author}</h4>
+            <h4 class="group card-title inner list-group-item-heading">
+            ${article.title}</h4>
+            <p class="lead">Author: ${article.author}</p>
             <p class="group inner list-group-item-text">${article.description}</p>
             <div class="row">
                 <div class="col-xs-12 col-md-6">
                     <p class="lead">
                         Source: ${article.source.name}</p>
+                        
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <a class="btn btn-primary" href="${article.url}">Read More</a>
