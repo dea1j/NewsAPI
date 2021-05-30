@@ -1,3 +1,13 @@
+body.dark {
+  background-color: hsl(207, 26%, 17%);
+}
+body.dark h3 {
+  color: #fff;
+}
+#toggle {
+  color: #fff;
+  border-radius: 20px;
+}
 .view-group {
   display: flex;
   flex-direction: row;

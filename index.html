@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand p-2" href="#">NEWS API</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -23,9 +23,12 @@
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search by author" id="search">
+            <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
           </form>
+          <button class="btn btn-info ml-2" id="toggle">
+            Dark Mode <i class="fas fa-moon"></i>
+          </button>
         </div>
       </nav>
 
@@ -37,18 +40,17 @@
                     <button class="btn btn-danger" id="grid">
                       Grid View <i class="fas fa-th-large"></i>
                   </button>
-                      <button class="btn btn-info" id="list">
-                          List View <i class="fas fa-list"></i>
-                      </button>
-                      
-                  </div>
+                  <button class="btn btn-info" id="list">
+                      List View <i class="fas fa-list"></i>
+                  </button>
+                </div>
               </div>
           </div>
       </div>
 
       <div id="renderedNews" class="row view-group">
-
-        </div>
+        <h3 class="col-lg-4">Fetching News...</h3>
+      </div>
     </main>
 
     <!-- jQuery library -->
